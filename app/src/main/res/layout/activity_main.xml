@@ -80,7 +80,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calcular"/>
+        android:text="Calcular"
+        android:onClick="Calcular"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,5 +89,12 @@
         android:text="Valor: "
         android:textSize="18sp"
         android:paddingTop="20dp"/>
-    
+
+    <TextView
+        android:id="@+id/txtExibirValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:gravity="center"/>
+
 </LinearLayout>
