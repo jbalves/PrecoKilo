@@ -20,6 +20,11 @@
         android:layout_weight="1"
         android:gravity="center"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ou"/>
+        
     <EditText
         android:id="@+id/edValor"
         android:hint="Digite o valor"
@@ -33,7 +38,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp">
 
         <TextView
             android:id="@+id/txtPeso"
@@ -49,8 +55,38 @@
             android:layout_height="wrap_content"
             android:text="Dinheiro (R$)"
             android:layout_weight="1"
-            android:gravity="center"/>
+            android:gravity="center" />
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <EditText
+        android:id="@+id/edPrecoKilo"
+        android:hint="Preço do Kg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/txtPrecoKilo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preço/Kg (R$)"
+        android:paddingBottom="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calcular"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor: "
+        android:textSize="18sp"
+        android:paddingTop="20dp"/>
+    
 </LinearLayout>
