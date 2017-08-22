@@ -7,9 +7,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.Format;
+import java.text.NumberFormat;
+
 public class MainActivity extends AppCompatActivity {
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +21,27 @@ public class MainActivity extends AppCompatActivity {
     public void Calcular(View view) {
         EditText precoKilo = (EditText) findViewById(R.id.edPrecoKilo);
         EditText edPeso = (EditText) findViewById(R.id.edPeso);
+        EditText edDinheiro = (EditText) findViewById(R.id.edValor);
         TextView txtExibirValor = (TextView) findViewById(R.id.txtExibirValor);
-
         float valorPagar = 0;
-        float valorKilo = Float.valueOf(precoKilo.getText().toString());
-        float valorPeso = Float.valueOf(edPeso.getText().toString());
-        valorPagar = (valorKilo * valorPeso)/1000;
-        Log.d("Debug", valorPagar+"");
+
+        if(!edPeso.getText().toString().isEmpty()){
+            valorPagar = CalcularValor(Float.valueOf(precoKilo.getText().toString()),Float.valueOf(edPeso.getText().toString())*1000);
+            txtExibirValor.setText("R$ " + String.valueOf(String.format("%.2f",valorPagar)));
+        }
+
+        if(!edDinheiro.getText().toString().isEmpty()){
+            valorPagar = CalcularPreco(Float.valueOf(precoKilo.getText().toString()),Float.valueOf(edDinheiro.getText().toString()));
+            Log.d("Debug", valorPagar+"");
+            txtExibirValor.setText(String.valueOf(String.format("%.3f",valorPagar))+" Kg");
+        }
+    }
+
+    public float CalcularValor(float valorKilo, float valorPeso){
+        return ((valorKilo * valorPeso)/1000);
+    }
+
+    public float CalcularPreco( float valorKilo, float valorDinheiro){
+        return (((1000*valorDinheiro)/valorKilo))/1000;
     }
 }
